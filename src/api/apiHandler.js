@@ -1,14 +1,14 @@
 import axios from "axios";
 
-// const service = axios.create({
-//   baseURL: process.env.REACT_APP_BACKEND_URL,
-//   withCredentials: true, // Cookie is sent to client when using this service. (used for session)
-// });
-
 const service = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: process.env.REACT_APP_BACKEND_URL,
   withCredentials: true, // Cookie is sent to client when using this service. (used for session)
 });
+
+// const service = axios.create({
+//   baseURL: process.env.REACT_APP_API_URL,
+//   withCredentials: true, // Cookie is sent to client when using this service. (used for session)
+// });
 
 function errorHandler(error) {
   if (error.response.data) {
