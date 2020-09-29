@@ -58,6 +58,10 @@ ul {
   /* border-radius: 10px; */
 }
 
+*:focus {
+  outline: none;
+}
+
 .home__map {
   height: calc(100vh - 147px) !important;
 }
@@ -467,9 +471,10 @@ ul {
 }
 
 .header__burgerMenu {
-margin-right: -10px;}
+  margin-right: -10px;
+}
 
-.header__burgerMenu > .MuiIconButton-root {
+.header__burgerMenu>.MuiIconButton-root {
   font-size: 0 !important;
 
 
