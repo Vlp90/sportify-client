@@ -15,7 +15,6 @@ import BurgerTwo from "../components/buttons/BurgerTwo";
 import { withUser } from "../components/Auth/withUser";
 import UserContext from "../components/Auth/UserContext";
 
-
 import AddBtn from "../components/buttons/AddBtn";
 import Avatar from "@material-ui/core/Avatar";
 import RetirerBtn from "../components/buttons/RetirerBtn";
@@ -110,7 +109,7 @@ class Home extends Component {
     teamB: [],
     allTeamsPics: [],
     teamSportName: [],
-    preferences:[],
+    preferences: [],
     soloCreatorPic: [],
     soloTitleEvent: [],
     soloDate: [],
@@ -197,36 +196,40 @@ class Home extends Component {
       team: newValue,
     });
   };
-  handleFavoriteToggle = (event)=> {
-    if (this.state.favoriteSports==false) {
+  handleFavoriteToggle = (event) => {
+    if (this.state.favoriteSports == false) {
       this.setState({
-        favoriteSports : true
-      })
-    }
-    else {
+        favoriteSports: true,
+      });
+    } else {
       this.setState({
-        favoriteSports : false
-      })
+        favoriteSports: false,
+      });
     }
-  }
+  };
   filterByFavorite = (item) => {
     console.log(item);
     // console.log(this.state);
-    if (this.state.favoriteSports)
-    {
-      console.log('-------------');
+    if (this.state.favoriteSports) {
+      console.log("-------------");
       console.log(item.sportType.sport);
       console.log(this.state.preferences);
-      if(this.state.preferences.find(x => x.favoriteSport.sport === item.sportType.sport && x.level === item.level)) {
-       return item;
+      if (
+        this.state.preferences.find(
+          (x) =>
+            x.favoriteSport.sport === item.sportType.sport &&
+            x.level === item.level
+        )
+      ) {
+        return item;
       }
-    } else { return item}
-   
-  }
-      
-      //  item.sportType.sport.includes(this.state.favoriteSport.sport.map((i)=>{return i})) 
-      //  && item.level.includes(this.state.preferences.map((i)=>{return i.favoriteSport.level}))} else {return item}
+    } else {
+      return item;
+    }
+  };
 
+  //  item.sportType.sport.includes(this.state.favoriteSport.sport.map((i)=>{return i}))
+  //  && item.level.includes(this.state.preferences.map((i)=>{return i.favoriteSport.level}))} else {return item}
 
   filterBySports = (item) => {
     return item.sportType.sport.includes(this.state.search);
@@ -345,7 +348,7 @@ class Home extends Component {
         // console.log("getUserSports------->", res.preferences);
         this.setState({
           preferences: res.preferences,
-        })
+        });
       })
       .catch((apiError) => {
         console.log(apiError);
@@ -356,7 +359,7 @@ class Home extends Component {
     // if (this.context.user === null) {
     //   return false;
     // }
-    console.log('allsport', this.state.favoriteSports);
+    console.log("allsport", this.state.favoriteSports);
     // console.log("USER", this)
     const filteredEvents = this.state.allSports
       .filter(this.filterBySports)
@@ -364,8 +367,8 @@ class Home extends Component {
       .filter(this.filterByDate)
       .filter(this.filterByTeam)
       .filter(this.filterByFavorite);
-console.log('FILTRES', filteredEvents)
-console.log("FAVORIS", this.state.preferences)
+    console.log("FILTRES", filteredEvents);
+    console.log("FAVORIS", this.state.preferences);
 
     navigator.geolocation.getCurrentPosition((position) => {
       this.setState({
@@ -382,7 +385,7 @@ console.log("FAVORIS", this.state.preferences)
       <>
         <React.Fragment>
           <CssBaseline />
-          <div className="color margin-top">
+          <div className="color home__searchbar">
             <Container maxWidth="md">
               <Grid className="test-search" container spacing={2}>
                 <Grid item xs={12} sm={8} md={10}>
@@ -393,7 +396,7 @@ console.log("FAVORIS", this.state.preferences)
                 {/* <Grid item xs={2} sm={4} md={2}>
                 <TeamSelector parentCallback={this.handleTeam} />
                 </Grid> */}
-                
+
                 <Grid item xs={6} sm={2} md={1}>
                   <FilterIconBtn clbk={this.toggleFilter} />
                   {/* <button className ="largeurTotale" onClick={this.toggleFilter}>Filter</button> */}
@@ -418,19 +421,18 @@ console.log("FAVORIS", this.state.preferences)
             <div className="position-filtered-container">
               <Container maxWidth="md">
                 <Grid container spacing={2}>
-
-                <Grid
+                  <Grid
                     className="position-filtered"
                     item
                     xs={12}
                     sm={6}
                     md={6}
                   >
-<DatePicker
-                    endDate={this.handleEndDate}
-                    startDate={this.handleStartDate}
-                  />
-</Grid>
+                    <DatePicker
+                      endDate={this.handleEndDate}
+                      startDate={this.handleStartDate}
+                    />
+                  </Grid>
                   <Grid
                     className="position-filtered"
                     item
@@ -440,9 +442,6 @@ console.log("FAVORIS", this.state.preferences)
                   >
                     <Level ratingValue={this.handleRating} />
                     <TeamSelector parentCallback={this.handleTeam} />
-
-                    
-                    
 
                     <FavoriteSportsFilter
                       parentCallback={this.handleFavoriteToggle}
@@ -465,11 +464,12 @@ console.log("FAVORIS", this.state.preferences)
             }
           >
             <Map
+            className='home__map'
               center={[this.state.lng, this.state.lat]}
               zoom={[zoom]}
               style={style}
               containerStyle={{
-                marginTop: "10px",
+                // marginTop: "10px",
                 height: "85vh",
                 width: "100vw",
               }}
@@ -501,37 +501,34 @@ console.log("FAVORIS", this.state.preferences)
                             </Moment>
                           }
                         />
-                        
-                          <CardMedia
-                            // className={classes.media}
 
-                            className="card-image"
-                            image={item.image}
-                            title="event"
-                          />
-                     
+                        <CardMedia
+                          // className={classes.media}
+
+                          className="card-image"
+                          image={item.image}
+                          title="event"
+                        />
+
                         {this.context.isLoggedIn === false && (
-                        <div className="card-container-bottom">
-                          <div className="avatar-group"></div>
-                          <div className="avatar-group-btn">
-                                <BurgerTwo />
-                          </div>
+                          <div className="card-container-bottom">
+                            <div className="avatar-group"></div>
+                            <div className="avatar-group-btn">
+                              <BurgerTwo />
+                            </div>
                           </div>
                         )}
 
                         {this.context.isLoggedIn === true && (
-                        <div className="card-container-bottom">
-                          <div className="avatar-group"></div>
-                          <div className="avatar-group-btn">
-                          <NavLink exact to={`/OneEvent/${item._id}`}> 
-                              <ViewEventBtn />
-                            </NavLink>
-                          </div>
+                          <div className="card-container-bottom">
+                            <div className="avatar-group"></div>
+                            <div className="avatar-group-btn">
+                              <NavLink exact to={`/OneEvent/${item._id}`}>
+                                <ViewEventBtn />
+                              </NavLink>
+                            </div>
                           </div>
                         )}
-
-                       
-                       
                       </Card>
 
                       <div
@@ -574,33 +571,32 @@ console.log("FAVORIS", this.state.preferences)
                               </Moment>
                             }
                           />
-                       
-                            <CardMedia
-                              className="card-image"
-                              image={item.image}
-                              title="Event"
-                            />
-                         
-                         {this.context.isLoggedIn === false && (
-                        <div className="card-container-bottom">
-                          <div className="avatar-group"></div>
-                          <div className="avatar-group-btn">
-                                <BurgerTwo />
-                          </div>
-                          </div>
-                        )}
 
-                        {this.context.isLoggedIn === true && (
-                        <div className="card-container-bottom">
-                          <div className="avatar-group"></div>
-                          <div className="avatar-group-btn">
-                          <NavLink exact to={`/OneEvent/${item._id}`}> 
-                              <ViewEventBtn />
-                            </NavLink>
-                          </div>
-                          </div>
-                        )}
-                       
+                          <CardMedia
+                            className="card-image"
+                            image={item.image}
+                            title="Event"
+                          />
+
+                          {this.context.isLoggedIn === false && (
+                            <div className="card-container-bottom">
+                              <div className="avatar-group"></div>
+                              <div className="avatar-group-btn">
+                                <BurgerTwo />
+                              </div>
+                            </div>
+                          )}
+
+                          {this.context.isLoggedIn === true && (
+                            <div className="card-container-bottom">
+                              <div className="avatar-group"></div>
+                              <div className="avatar-group-btn">
+                                <NavLink exact to={`/OneEvent/${item._id}`}>
+                                  <ViewEventBtn />
+                                </NavLink>
+                              </div>
+                            </div>
+                          )}
                         </Card>
                       </Grid>
                     ))}

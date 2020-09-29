@@ -94,7 +94,7 @@ const NavMain = (props) => {
             {/* <Typography variant="h6" className={classes.title}>
             TITLE A VOIR
           </Typography> */}
-            <div>
+            <div className='header__burgerMenu'>
               <IconButton
                 edge="start"
                 className={classes.menuButton}

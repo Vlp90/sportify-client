@@ -58,6 +58,11 @@ ul {
   /* border-radius: 10px; */
 }
 
+.home__map {
+  height: calc(100vh - 147px) !important;
+}
+
+
 .margin0 {
   margin: -10px 0 0 0 !important;
   /* background-color: red; */
@@ -287,9 +292,7 @@ ul {
   justify-content: flex-end;
 }
 
-/* .margin-top {
-  margin: 20px 0;
-} */
+
 
 .margin-title-creator {
   margin: 20px 15px 20px 0;
@@ -450,10 +453,11 @@ ul {
   height: 30px;
 }
 
-.margin-top {
-  /* margin : 16px 20px; */
-  padding: 10px 20px;
-  /* background-color: red; */
+.home__searchbar {
+  /* padding: 10px 20px; */
+  padding: 5px 20px 20px 20px;
+  border-bottom: 1px solid #3f51b5 !important;
+
 }
 
 .middle {
@@ -462,7 +466,19 @@ ul {
   justify-content: center;
 }
 
+.header__burgerMenu {
+margin-right: -10px;}
+
+.header__burgerMenu > .MuiIconButton-root {
+  font-size: 0 !important;
+
+
+}
+
 .position-filtered-container {
+  border-bottom: 1px solid #3f51b5 !important;
+
+  margin-top: -1px;
   background-color: white;
   padding: 10px 0;
   -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
