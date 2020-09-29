@@ -17,6 +17,7 @@ a {
 
 body {
   background: #f8f9fd;
+  background-color: white !important;
 }
 
 ul {
@@ -80,12 +81,16 @@ ul {
 }
 
 .app-bar {
-  background-color: white;
+  background-color: #3f51b5;
   color: black;
-  -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  /* -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75); */
 }
+
+.app-bar > * {
+  color: white;
+opacity: 1 !important;}
 
 /* .avatar-group {
   position: relative;
@@ -99,10 +104,13 @@ ul {
 }
 
 .card-image {
-  width: 90%;
+  /* width: 90%; */
   /* min-width: 200px; */
   height: 200px;
   margin: 0 auto;
+  margin-right: 15px;
+  margin-left: 15px;
+
   border-radius: 4px 20px 4px 20px;
   object-fit: cover;
   overflow: hidden;
@@ -145,7 +153,7 @@ ul {
 }
 
 .main-container {
-  background-color: white;
+  /* background-color: white; */
   /* max-width: 800px; */
   margin: 1vh auto 10px;
   padding: 0 25px;
@@ -196,6 +204,7 @@ ul {
   /* background-color: grey; */
   text-align: center;
   background-size: cover;
+  border: 2px solid #3f51b5;
 }
 
 .img-container-map {
@@ -445,9 +454,9 @@ ul {
 .color {
   background-color: white;
   /* margin: 0px 3px 0 0; */
-  -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-  -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  /* -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75); */
+  /* -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75); */
+  /* box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75); */
   /* padding: 10px 0; */
   /* border-bottom: 1px solid black; */
 }
@@ -459,7 +468,9 @@ ul {
 
 .home__searchbar {
   /* padding: 10px 20px; */
-  padding: 5px 20px 20px 20px;
+  z-index: 5000!important;
+  margin-top: -3px;
+  padding: 5px 20px 10px 20px;
   border-bottom: 1px solid #3f51b5 !important;
 
 }
@@ -480,15 +491,21 @@ ul {
 
 }
 
+.home__headerNav {
+  border-bottom: 1px solid #3f51b5 !important;
+  z-index: 1!important;
+
+}
+
 .position-filtered-container {
   border-bottom: 1px solid #3f51b5 !important;
 
   margin-top: -1px;
   background-color: white;
   padding: 10px 0;
-  -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  /* -moz-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
   -webkit-box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
-  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75);
+  box-shadow: 0 5px 5px rgba(182, 182, 182, 0.75); */
   /* margin: 0px 20px 0 0; */
   /* box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12); */
 

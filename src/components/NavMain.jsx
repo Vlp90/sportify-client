@@ -78,12 +78,12 @@ const NavMain = (props) => {
     //   </ul>
     // </nav>
 
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
+    <div className='home__headerNav'>
+      <AppBar  position="static">
+        <Toolbar >
           <Container maxWidth="lg">
           <div className="flex-between">
-            <div>
+            <div >
               <Typography variant="h6" className={classes.title}>
                 <NavLink exact to="/">
                 <img className="logo-container" src="/media/logo.svg"/>
