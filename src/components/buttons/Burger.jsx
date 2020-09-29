@@ -91,7 +91,13 @@ const SwipeableTemporaryDrawer = (props) => {
         <div className="title-container-burger">
           {/* <ConsumingContext /> */}
 
+          <div className='burger__nameContainer'>
+
           {context.isLoggedIn && <h3>{context.user.firstName}</h3>}
+          {context.isLoggedIn && <h3>{context.user.lastName}</h3>}
+          </div>
+
+
           {!context.isLoggedIn && <h3></h3>}
         </div>
       </div>

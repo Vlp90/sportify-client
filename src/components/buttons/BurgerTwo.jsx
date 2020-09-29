@@ -91,32 +91,35 @@ const SwipeableTemporaryDrawer = (props) => {
         <div className="title-container-burger">
           {/* <ConsumingContext /> */}
 
-          {context.isLoggedIn && <h3>{context.user.firstName}</h3>}
+          <div className="burger__nameContainer">
+            {context.isLoggedIn && <h3>{context.user.firstName}</h3>}
+            {context.isLoggedIn && <h3>{context.user.lastName}</h3>}
+          </div>
+
           {!context.isLoggedIn && <h3></h3>}
         </div>
       </div>
 
-
       {context.isLoggedIn && (
-<>
-      <div className="divider-section">
-        <Divider />
-      </div>
+        <>
+          <div className="divider-section">
+            <Divider />
+          </div>
 
-        <div className="menu-list">
-          <NavLink exact to="/">
-            <List>
-              <ListItem>
-                <ListItemIcon>
-                  <HomeIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText className="text-list black-font">
-                  Accueil
-                </ListItemText>
-              </ListItem>
-            </List>
-          </NavLink>
-        </div>
+          <div className="menu-list">
+            <NavLink exact to="/">
+              <List>
+                <ListItem>
+                  <ListItemIcon>
+                    <HomeIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText className="text-list black-font">
+                    Accueil
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </NavLink>
+          </div>
         </>
       )}
 
@@ -155,28 +158,27 @@ const SwipeableTemporaryDrawer = (props) => {
 
       {context.isLoggedIn && (
         <>
-        <div className="menu-list">
-          <NavLink exact to="/myEvents">
-            <List>
-              <ListItem>
-                <ListItemIcon>
-                  <CheckIcon color="primary" />
-                </ListItemIcon>
-                <ListItemText className="text-list black-font ">
-                  Mes évenements
-                </ListItemText>
-              </ListItem>
-            </List>
-          </NavLink>
-        </div>
-      <div className="divider-section">
-        <Divider />
-      </div>
-      </>
+          <div className="menu-list">
+            <NavLink exact to="/myEvents">
+              <List>
+                <ListItem>
+                  <ListItemIcon>
+                    <CheckIcon color="primary" />
+                  </ListItemIcon>
+                  <ListItemText className="text-list black-font ">
+                    Mes évenements
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </NavLink>
+          </div>
+          <div className="divider-section">
+            <Divider />
+          </div>
+        </>
       )}
-      
+
       {!context.isLoggedIn && (
-       
         <div className="menu-list color-menu-icon-inscription margin-burger">
           <NavLink exact to="/signup">
             <List>
@@ -187,7 +189,6 @@ const SwipeableTemporaryDrawer = (props) => {
             </List>
           </NavLink>
         </div>
-      
       )}
 
       {!context.isLoggedIn && (
@@ -224,19 +225,16 @@ const SwipeableTemporaryDrawer = (props) => {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-
-      
           <Button
-        variant="contained"
-        color="primary"
-        className={"btn-recherche-style-add"}
-   
-        onClick={toggleDrawer(anchor, true)}
-        // fullWidth={<AddIcon>Add</AddIcon>}
-      >
-      {/* {anchor} */}
-     Voir
-      </Button>
+            variant="contained"
+            color="primary"
+            className={"btn-recherche-style-add"}
+            onClick={toggleDrawer(anchor, true)}
+            // fullWidth={<AddIcon>Add</AddIcon>}
+          >
+            {/* {anchor} */}
+            Voir
+          </Button>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
