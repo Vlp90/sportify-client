@@ -15,11 +15,9 @@ import Grid from "@material-ui/core/Grid";
 
 import TestChat from "../components/buttons/TestChat";
 
-
-import ReturnBtn from "../components/buttons/ReturnBtn"
+import ReturnBtn from "../components/buttons/ReturnBtn";
 
 import { NavLink } from "react-router-dom";
-
 
 import UserContext from "../components/Auth/UserContext";
 import AddBtn from "../components/buttons/AddBtn";
@@ -297,12 +295,11 @@ export default class OneEventId extends Component {
           <div className="main-container">
             <h2 className="title-container"></h2>
 
-            <NavLink exact to="/myEvents">
-
-            <div className="return-btn">
-          <ReturnBtn />
-            </div>
-</NavLink>
+            {/* <NavLink exact to="/myEvents">
+              <div className="return-btn">
+                <ReturnBtn />
+              </div>
+            </NavLink> */}
 
             <div className="img-position">
               <img className="img-container" src={this.state.image} />
@@ -391,12 +388,14 @@ export default class OneEventId extends Component {
             <h2 className="title">Participants</h2>
 
             {this.state.type === "individual" ? (
+
+
               <div className="team-container">
-                <Grid container spacing={3}>
+
                   <div className="margin-pic-participants">
-                      {this.state.participants.map((item, index) => (
-                    <Grid item xs={12}>
-                        <div className="title position-player-participants">
+                    {this.state.participants.map((item, index) => (
+                      
+                        <div className="position-player-participants">
                           <img
                             className="pic-avatar-container"
                             key={index}
@@ -406,31 +405,33 @@ export default class OneEventId extends Component {
                             {item.firstName} {item.lastName}
                           </h3> */}
                         </div>
-                    </Grid>
-                      ))}
+                  
+                    ))}
                   </div>
-                </Grid>
+                
               </div>
+
+
             ) : (
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={6}>
-                  <div className="team-container">
+
+
+              <div className='event__multipleContainers'>
+               
+                  <div className="team-container-team">
                     <h3 className="title">Team 1</h3>
 
-                    <div className="flex-between">
-                      <div className="flex-between">
+                  
+                     
+                          <div className="margin-pic-participants ">
                         {this.state.teamAImage.map((item, index) => (
-                          <div className="margin-pic-participants-team ">
-
-                          
-<img
-  key={index}
-  className="pic-avatar-container"
-  src={item}
-/>
-</div>
+                            <img
+                              key={index}
+                              className="pic-avatar-container"
+                              src={item}
+                            />
                         ))}
-{/* 
+                          </div>
+                        {/* 
                         {this.state.teamAFirstName.map((item, index) => (
                           <h3 key={index} className="title space">
                             {item}
@@ -442,30 +443,24 @@ export default class OneEventId extends Component {
                             {item}
                           </h3>
                         ))} */}
-                      </div>
-                    </div>
+                   
+                 
                   </div>
-                </Grid>
+            
 
-                <Grid item xs={12} md={6}>
-                  <div className="team-container">
+               
+                  <div className="team-container-team">
                     <h3 className="title">Team 2</h3>
-                    <div className="flex-between">
-                      <div className="flex-between">
-                      <div className="margin-pic-participants-team ">
-
-                          
-{displayImage}
-
-    </div>
+                 
+                        <div className="margin-pic-participants ">
+                          {displayImage}
+                        </div>
 
                         {/* {displayOne}
                         {displayTwo} */}
                       </div>
                     </div>
-                  </div>
-                </Grid>
-              </Grid>
+          
             )}
 
             <h2 className="title">Messagerie</h2>
