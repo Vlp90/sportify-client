@@ -490,8 +490,8 @@ class Home extends Component {
                   {/* // SI L'IMAGE EST CLIQUEE */}
 
                   {this.state.imageClicked === item._id ? (
-                    <div className="zIndexCard card-mini-container">
-                      <Card key={index} className="zIndexCard">
+                    <div className="card-mini-container">
+                      <Card className="zIndexCard" key={index} >
                         <CardHeader
                           // avatar={<Avatar aria-label="recipe">R</Avatar>}
                           title={item.title}
@@ -540,7 +540,7 @@ class Home extends Component {
                     </div>
                   ) : (
                     // SI L IMAGE EST PAS CLIQUEE
-                    <img className="event-icon zIndexImage" src={item.image} />
+                    <img className="event-icon zIndexImag" src={item.image} />
                   )}
                 </Marker>
               ))}
