@@ -49,7 +49,7 @@ import apiHandler from "../api/apiHandler";
 require("dotenv").config();
 const Map = ReactMapboxGl({
   accessToken:
-    "pk.eyJ1IjoiY2FwemViaWIiLCJhIjoiY2s5emRveWVxMHlkdDNndGVpcjM5ZDNuNSJ9.RHGZkM4ZydezmApMPNj3yA",
+    "pk.eyJ1IjoidmxhZGltaXJscCIsImEiOiJja2ZwaTYxNm8wNWxmMzNycDh0dGlncGxsIn0.rBIYqRbNCmOpoFLXk4aP-A",
 });
 
 // const useStyles = makeStyles((theme) => ({
@@ -613,3 +613,5 @@ class Home extends Component {
   }
 }
 export default Home;
+
+
